@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title> Tytuł strony</title>
+	<title>HTML - CSS - JS</title>
 	<meta name="keywords" content="słowo kluczowe 1, słowo kluczowe 2" />
 	<meta name="description" content="opis strony" />
 	
@@ -81,24 +81,312 @@ kontrolować poprzez css.
  <br />
  Przykład listy wypunktowanej:
  <br />
+  <textarea name="kod" rows="7" cols="55"> 
+<ul>
+	<li>pierwsza pozycja listy</li>
+	<li>druga pozycja listy</li>
+	<li>trzecia pozycja listy</li>
+</ul>
+ </textarea>
  <ul>
 	<li>pierwsza pozycja listy</li>
 	<li>druga pozycja listy</li>
 	<li>trzecia pozycja listy</li>
 </ul>
  <br />
- Przykład listy numerowanej (zamiast ul uzywamy ol jako znacznik ram listy) :
+ Przykład listy numerowanej (ol - jako znacznik ram listy) :
  <br />
+  <textarea name="kod" rows="7" cols="55"> 
+<ol>
+	<li>pierwsza pozycja listy</li>
+	<li>druga pozycja listy</li>
+	<li>trzecia pozycja listy</li>
+</ol>
+ </textarea>
  <ol>
 	<li>pierwsza pozycja listy</li>
 	<li>druga pozycja listy</li>
 	<li>trzecia pozycja listy</li>
 </ol>
  <br />
- Przykład listy definicji: Za pomocą znacznika dl okreslamy ramy listy, potem przy użyciu znaczika dt ozaczamy
- definiowany wyraz lub frazę i na koniec za pomocą znacznika dd dodajemy definicję.
+ Przykład listy definicji: Za pomocą znacznika dl okreslamy ramy listy, 
+ potem przy użyciu znaczika dt ozaczamy definiowany wyraz lub frazę 
+ i na koniec za pomocą znacznika dd dodajemy definicję.
  <br />
-	
+   <textarea name="kod" rows="7" cols="55"> 
+ <dl>
+  <dt>Program komputerowy</dt>
+  <dd>definicja: program komputerowy to:</dd>
+  <dt>Kolejne definiowane słowo</dt>
+  <dd>Kolejna definicja...</dd>
+ </dl>
+ </textarea>
+ <br />
+ <dl>
+  <dt>Program komputerowy</dt>
+  <dd>definicja: program komputerowy to:</dd>
+  <dt>Kolejne definiowane słowo</dt>
+  <dd>Kolejna definicja...</dd>
+ </dl>
+
+ <br />
+Możemy łączyć (zagnieżdrzać) kilka rodzajów list. Poniższy przyklad ilustruje listę numerowaną 
+z wypunktowaną, potrójniezagnieżdżoną. Zagnieżdżana lista powinna być umieszcana w znaczikach liz
+z uwagi na poprawność kodu.
+
+
+ <br />
+ 
+ 
+ <ol>
+ <li>Produkty mleczne
+	<ul>
+		<li>mleko </li>
+		<li>ser </li>
+		<li>jogurt </li>
+	</ul>
+  </li>
+  <li>Owoce
+	<ul>
+		<li>jabłka</li>
+		<li>cytrusy</li>
+			<ul>
+				<li>cytryny</li>
+				<li>pomarańcze</li>
+			</ul>
+	</ul>
+ <li>Pozostałe produkty</li>
+	<ul>
+		<li>pomidory</li>
+		<li>orzechy</li>
+	</ul>
+ </ol>
+ 
+ <textarea name="listy" rows="7" cols="55" >
+ <ol>
+ <li>Produkty mleczne
+	<ul>
+		<li>mleko </li>
+		<li>ser </li>
+		<li>jogurt </li>
+	</ul>
+  </li>
+  <li>Owoce
+	<ul>
+		<li>jabłka</li>
+		<li>cytrusy</li>
+			<ul>
+				<li>cytryny</li>
+				<li>pomarańcze</li>
+			</ul>
+	</ul>
+ <li>Pozostałe produkty</li>
+	<ul>
+		<li>pomidory</li>
+		<li>orzechy</li>
+	</ul>
+ </ol>
+ </textarea>
+ 
+  <br />
+  <br />
+
+  <h2>Znacznik PRE</h2>
+  Znacznik pre tworzy blok, w którym zachywane jest ręcznie nadane formatowanie.
+  <br />
+  Prosta tabela bez znaczika pre wygląda tak:
+  <br />
+  <br />
+  |Prosta tabela|
+  ---------------
+  |   1   |  2  |
+  |   3   |  4  |
+  |   5   |  6  |
+  ---------------
+   <br />
+   <br />
+   A ze znacznikiem pre tak:
+   <pre>
+  |Prosta tabela|
+  ---------------
+  |   1   |  2  |
+  |   3   |  4  |
+  |   5   |  6  |
+  ---------------
+ </pre>
+ <br />
+ <br />
+ <h2> Pozioma linia - znacznik hr /
+ <br />
+
+ <hr />
+
+ <br />
+ <br />
+ <h2>Znacznik figure i figcaption:</h2>
+ figure Służy do łączenie elementów w logiczną całość. figure może być zupełniony o figcaption
+ odpowiadający za podpis danej grupy elementów. Przykład:
+ <br />
+ <br />
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
+ <figure>
+   <figcaption>Tabela 1. przykład wykorzystania</figcaption>
+   <pre>
+  |Prosta tabela|
+  ---------------
+  |   1   |  2  |
+  |   3   |  4  |
+  |   5   |  6  |
+  ---------------
+ </pre>
+ </figure>
+ <br />
+
+ <h2>Grupowanie znaczników. Znacznik div.</h2>
+ Jest odpowiedzialny za grupowanie znaczników. Dzięki div mozna tworzyć warstwy w dokumencie.
+ Znacznik DIV może być uzywany do elementów nie tworzących spójnej i logicznej całości. 
+ Znacznik DIV w połączeniu z dodatkowymi atrybutami może pełnić funkcje takie same jak np. znaczniki trukkturalne strony.
+ Np.: 
+ <br />
+ <br />
+ <textarea name="listy" rows="7" cols="55" >
+ <div id="header"></div>
+	<div id="nav"></div>
+	<div id="section"></div>	<div id="aside"></div>
+ </div>
+	<div id="footer"></div>
+ </textarea>
+ 
+<h2>Elementy wstawiane</h2>
+ To znaczniki, które wstawiamy podczas ppracy nad małymi fragmentami większych bloków.
+ Na przykład gdy chcemy zająć się jednym słowem z całego akapitu. Cechą charakterystyczną
+ dla elementów wstawianych jest to, że nie tworzy on nowej części strony, która jest oddzielona 
+ od pozostałych wyraźną przerwą.
+ 
+ Wstępna wersja HTML5 przewiduje kilkanaście takich znaczników wstawianych.
+ Między innymi indeksy górne, dolne, cytowanie, pogrubienie, osyłacz....
+ .....................................
+ <br />
+ <br />
+ <textarea name="listy" rows="7" cols="55" >
+ <dnf></dnf>
+ <time></time>
+ <var></var>
+ <samp></samp>
+ <ruby></ruby>
+ <rt></rt>
+ </textarea>
+ 
+ <h2>Znacznik em - kursywa</h2>
+ Służy do zaakcentowania pochyłą czcionką wybranego słowa lub fragmentu większego bloku tekstu.
+ <br />
+ <em>Ten fragment</em> jest napiany kursywą.
+ 
+ <h2>Znacznik strong - pogrubienie</h2>
+ Służy do silnego wyróznieniawybranego fragmentu tekstu.
+ <br />
+ <strong>to jest pogrubiony fragment</strong> a ten nie jest pogrubiony.
+ 
+ <h2>Znacznik small - pomniejszenie tekstu</h2>
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+ <small>Proin nibh augue, suscipit a, scelerisque sed,</small> lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
+ <br />
+ Przeglądarka wyswietli fragment w znaczniku small za pomocą nieco mniejszej czcionki.
+ Różnice nie są duże ale powinny być widoczne. 
+  
+ <h2>Znacznik cite - odwołanie</h2>
+ Znacznika tego używamy tylko i wyłącznie jeśli chcemy się odwołać
+ do konkretnej pracy (ksiązki, artukułu, filmu itp.) Np.:
+ <br />
+ Ostatnio wpadła mi w ręce książka pod tytułem: 
+ <cite>HTML5 - Ćwiczenia praktyczne.</cite> Jak widać tytuł umieszczony w znaczniku cite 
+ został wyświetlony przez przeglądarkę pochyłą czcionką. 
+ 
+  <h2>Znacznik q - cytat</h2>
+ Znacznik słuzy do oznaczania cytatu umieszczonego wewnątrz bloku tekstu. 
+ Tekst umieszczony w tym znaczniku zostanie umieszczony w cudzysłowie. 
+ Poprzednio omawiany znacznik <strong>blockquote</strong> służył do cytowania całych bloków tekstu. 
+ Przykład zastosowania znacznika <strong>q:</strong>.
+ <br />
+ Kto to powiedział: <q>Cogito ergo sum</q> ?
+ <br />
+ Cytowany tekst został tylko objety cudzysłowem, podczas gdy blok tekstu ujety w znaczniku blockquote jest wyraźnie wcięty
+ względem pozostałych akapitów na stronie.
+ 
+ <h2>Znacznik code - kod programistyczny</h2>
+ Znacznik ten został stworzony z myślą oznaczania kodu programistycznego dodawanego na stronie WWW.
+ Przeglądarki do wyświetlana tekstu oznaczonego tym kodem domyslnie wykorzystują czcionkę o stałej szerokości.
+ <figure>
+ <figcaption>Lista 1.</figcaption>
+ <code>
+	ul.lista
+		{
+		display: list-item;
+		list-style-type:none;
+		color:red;
+		margin-left:4em;
+		text-indent:-1em;
+		}
+ </code>
+ </figure>
+ 
+ <h2>Zacznik sup i sub - indeksy górne i dolne</h2>
+ <p><strong>Indeks górny - sup:</strong></p>
+ E = mc<sup>2</sup>
+ <p><strong>Indeks dolny - sub:</strong></p>
+ log<sub>a</sub>b
+ 
+ <h2>Znacznik i - wyróżnienie</h2>
+ Oznaczamy nim fragment tekstu, który ma być wyróżniony na tle reszty tekstu.
+ Chodzi tu o fragment tekstu, który ma być na przykład odczytany inną intonacją głosu. 
+ Przeglądarka do wyróóżnienia tekstu domyslnie używa <b>kursywy</b>.
+ <p>
+ Aby odświezyć zawartość okna przeglądarki naciśnij klawisz F<sup>5</sup>. Możesz też 
+ skozystać ze <i>specjalnej ikony</i>.
+ </p>
+ 
+ <h2>Znacznik b - pogrubienie</h2>
+ <p><b>Pogrubienie</b> ale bez nacisku na wazne znaczenie merytoryczne tak jak w przypadku znacznika strong.</p>
+ 
+ <h2>Znacznik span</h2>
+ Sam w sobie nic nie daje. Ale w połączeniu z CSS daje duzo mozliwośći, np. pozwala rozciągnąć formatowanie
+ formatowanie na większy fragment i inne znaczniki wpisane. 
+ W poniższym przyładnie jest tekst ze znacznikiem span do którego przypisałem za pomocą CSS czerwony kolor czcionki:
+ <p>Autor <span style="color:red;"><b>Bartosz</b> <i> Danowski</i> </span> w swoim dorobku ma kilkadziesiąt ksiązek o tematyce informatycznej. </p>
+ 
+ 
+ <h2>Znacznik br - łamanie linii</h2>
+ Dzieki temu znacznikowi wymuszamy na przeglądarce złamanie linni i wyświetlenie dalszej cześci tekstu w linii ponizej.
+ Inaczej przeglądarka sama decyduje kiedy złamać liniię ponieważ akapity są automatycznie doposowywane 
+ do rozdzielczości ekranu.
+ <p>Lorem ipsum dolor sit amet,  <br />consectetur adipiscing elit. Proin nibh augue,  <br />suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam  <br />pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.</p>
+ 
+ <h2>Znacznik ins oraz del - oznaczenie dodanych i usuniętych elementów</h2>
+ Jest to znacznik edytorski. Używamy go jak chcemy oznaczyć ellementy dodane do treści strony lub usunięte. 
+ Oznaczone tymi znacznikami elementy nie znikają ze strony lecz są wyświetlane w inny sposób.
+ Tekst oznaczony jako <b>dodany</b> jest <ins>podkreslony</ins> a <b>usunięty</b> jest <del>przekreslony.</del>
+ 
+ <h1>Elemnty osadzone (grafika, multimedia, aplikacje)</h1>
+ 
+ 
+ 
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+ <br />
+
  
   
   
