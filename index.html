@@ -21,8 +21,8 @@
 	<meta http-equiv="refresh" content="1; url=http://www.google.pl" /> 
 	-->
 	
-	<base href="http://www.bazowyAdresDlaDokumentu.pl" />
-	<link rel="stylesheet" hetf="arkusz.css" type="text/css" />
+	<base href="index.html" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
 	
  </head>
 
@@ -366,22 +366,416 @@ z uwagi na poprawność kodu.
  Oznaczone tymi znacznikami elementy nie znikają ze strony lecz są wyświetlane w inny sposób.
  Tekst oznaczony jako <b>dodany</b> jest <ins>podkreslony</ins> a <b>usunięty</b> jest <del>przekreslony.</del>
  
- <h1>Elemnty osadzone (grafika, multimedia, aplikacje)</h1>
+ <h2>Elemnty osadzone (grafika, multimedia, aplikacje)</h2>
+ <h2>Osadzanie obrazów - < IMG /> </h2>
+ <p>Na stronie WWW możemy osadzać obrazy typów: .jpg .png .gif.
+ Do umieszczania na stronie grafiki służy znacznik img. Posiada on atrybuty 
+ <span style="color:red;"><b>src</b></span> który okresla lokalizację obrazka. Oraz atrybut
+ <span style="color:red;"><b>alt</b></span> który okresla alternatywny tekst, który zostanie wyswietlony jeśli w przeglądarce nie uda się załadować obrazka.</p>
+ <img src="C:\Users\Sławek\Documents\=Programowanie=\HTML-cw-pr\obrazek.jpg" alt="obraz przedstawiający balony" />
+ <p>Za pomocą atrybutów <span style="color:red;"><b>width i height</b></span> możemy określić szerokość i wysokość obrazka.</p>
+ <img src="C:\Users\Sławek\Documents\=Programowanie=\HTML-cw-pr\obrazek.jpg" alt=" " width="100" height="70"/>
+ <p>Skalowanie obrazków za pomocą HTML albo CSS pogarsza ich jakość.</p>
+ 
+ <h2>Filmy - video</h2>
+ <p>
+ Na stronach możemy osadzać pliki typu
+ <span style="color:red;"><b>.mp4 .ogg .webm</b></span>. Za osadzanie filmów odpowiada znacznik 
+ <span style="color:red;"><b>video</b></span>. Znacznik video może mieć dodatkowe atrybuty, którymi są obowiązkowy src oraz 
+ dodatkowe  width, height. Nie ma znacznika alt, zamiast tego pożna dodać tekst alternatywny np. na końcu 
+ (po wszystkich dodanych atrybutach) Jesli nie podamy wymiarów filmu to przeglądarka wyświetli go w 
+ takich wymiarach w jakich do zakodowano. Istotnym atrybutem znacznika jest 
+ <span style="color:red;"><b>controls="controls"</b></span> odpowiedzialny za wyświetlanie paska postępu pod filmem.
+ </p>
+ 
+ <textarea name="listy" rows="8" cols="65" >
+ <video controls="controls"
+ width="280" height="160">
+ <source src="C:\Users\Sławek\Documents\=Programowanie=\HTML-cw-pr\media\film.mp4">
+ <!-- możemy dodać plik w inny formacie który zostanie załadowany jesli przeglądarce nie uda się załadować pierwszego filmiku --> 
+ <source src="C:\Users\Sławek\Documents\=Programowanie=\HTML-cw-pr\media\film..ogg">
+ Przegladarka nie obsługuje tego formatu fimu
+ </video>
+ </textarea>
+ 
+ <p> Kolejnym ciekawym atrybutem jest "autoplay" Moęmy też użyć atrybutu "preload" 
+ aby wyusić pobranie filmu na dysk przed otworzeniem (niweluje to zacinanie się filmów przy słabej prędkości łącza).
+ Znacznik loop="loop" będzie odtwarzał film wkółko.
+ </p>
+ 
+ <h2>Osadzanie plików audio</h2>
+ <p>Możemy osadzać .mp3 .ogg .wave</p>
+ <audio src="C:\Users\Sławek\Documents\=Programowanie=\HTML-cw-pr\media\angel_call.mp3" 
+ controls="controls" loop="loop" preload="preload">
+ Twojaprzeglądarka nie obsługuje tego formatu audio. 
+ </audio>
+
+<a name="nazwa_kotwicy"></a>
+<h2>Osadzanie plików flash - embed</h2>
+<p>Do osadzenia musimy użyć atrybutów src width, height:</p>
+<textarea name="listy" rows="6" cols="45" >
+<div>
+<embed src="media/clock.swf" width="280" height="160" />
+</div>
+</textarea>
+
+<div>
+<embed src="media/clock.swf" width="280" height="160" />
+</div>
+ 
+<h2><a name="ramki">Ramki osadzone - iframe</a></h2>
+<p>Floating frame - pływające ramki to nic innego jak pewnego rodzaju
+okna na stronie. Możemy w nich umieszczać zawartość innej strony lub pliku HTML.
+Rozwiązanie to często jest stosowane do osadzania banerów reklamowych. 
+Do znacznik iframe musimy dodać kilka innych atrybutów:
+<ul>
+<li>src - który wskazuje konkretny dokument lub stronę która ma być wyświtlona w ramce;</li>
+<li>name - możemy dodać nazwę ramki;</li>
+<li>target -  </li>
+<li>seamless - pozwala tak osadzić ramkę, że stanie się ona częścią dokumentu a krawędzie i paski przewijania nie będą widoczne;</li>
+<li>srcdoc - słuzy do bezpiecznego osadzania potencjalnie niebezpiiecznych treści. Dzieki temu atrybutowi osadzana treść 
+znajdzie się w takzwanej piaskownicy i będzie oddzielona od systemu operacyjnego i przez to będzie on lepiej chroniony, bo zawartość ramki zosttanie otworzona przy użyciu bezpiecznych mechanizmów;</li>
+<li>sandbox - pozwala na ustawieni dodatkowych restrykcji na stronie:
+	<ul>
+	 <li>allow-top-navigation - mozemy z poziomu ramki kontrolować stronę na której ramka została uzyta.</li>
+	 <li>allow-same-orgin - traktuje tresci wyświetlane w ramce jako elementy o tym samym pochodzeniu.</li>
+	 <li>allow-forms - pozwala na działanie formularzy dostępnych na osadzonej stronie w ramce.</li>
+	 <li>allow-scripts - pozwala na działanie skryptów dostępnych na osadzonej stronie w ramce, ale i tak będzie blokowany skrypt pozwalający na otwieranie nowych okienek.</li>
+	 </ul>
+</ul>
+Atrybuty możemy dowolnie łączyć:
+</p>
+ 
+<textarea name="listy" rows="8" cols="65" >
+<iframe
+src="http://helion.pl" srcdoc="http://helion.pl width="500" height="300"
+seamless="seamless" sandbox="allow-same-orgin allow-forms">
+</iframe>
+</textarea>
+<iframe
+src="http://helion.pl" srcdoc="http://helion.pl" width="500" height="300"
+seamless="seamless" sandbox="allow-same-orgin allow-forms">
+</iframe>
  
  
- 
- 
- <br />
- <br />
- <br />
- <br />
- <br />
- <br />
- <br />
- <br />
- <br />
- <br />
- <br />
+<h2>Hiperłącza</h2>
+<p>
+Odsyłacze możemy tworzyć do innych stron, plików, dokumentów, obrazków, FTP, e-maili, grup dyskusyjnych. 
+Odsyłacz do poczty możey rozbudować tak aby podkleić gotową treść i temat we wiadomości:
+</p>
+<textarea name="area" rows="8" cols="65" >
+<a href="mailto:gloslasu@gmail.com?Subject=tytuł wiadomości">Treść wiadomości</a>
+</textarea>
+
+
+<h2>Kotwice</h2>
+<p>
+Dzieki nim możemy nie tylko przenieść się do innej strony ale też do konkretnego miejsca na stronie.
+W miejscu na stronie do którego mamy trafić po kliknięciu w kotwicę należy dodać id: <br />
+<textarea name="listy" rows="4" cols="45" >
+<a name="nazwa_kotwicy"></a>
+</textarea>
+<br />
+Natomiast link który nas przeniesie do kotwicy tworzymy tak: <br />
+<textarea name="listy" rows="9" cols="75" >
+<h2>Osadzanie plików flash - embed</h2>
+<p>To jests jakaś treść w której możesz zamiaścić kotwicę po kliknięciu na którą zostaniesz przeniesiony 
+do strony index.html na której umieściłeś wczesniej id kotwicy o nazwie "nazwa_kotwicy".
+<a href="index.html#nazwa_kotwicy">link do kotwicy w innym miejscu.</a></p>
+</textarea>
+<br />
+<p>To jests jakaś treść w której możesz zamiaścić kotwicę po kliknięciu na którą zostaniesz przeniesiony 
+do strony index.html na której umieściłeś wczesniej id kotwicy o nazwie "nazwa_kotwicy".
+<a href="index.html#nazwa_kotwicy">link do kotwicy w innym miejscu.</a></p>
+
+<h2>Adresy względne i bezwzględne</h2>
+<p>Odsyłacz bezwzględny zawiera dokładny adres URL do danego pliku i wygląda tak:</p>
+<textarea name="area" rows="2" cols="114">
+<a href="http://danowski.pl/nazwa_pliku.html"> To jest odnoścnik do pliku na stronie Danowskiego</a>
+</textarea>
+<p>Odnośnik bezwzgledny ma wadę bo jak zmienimy nazwę domeny to będziemy musieli poprawić wszystkie
+odnośniki na stronie. Dlatego bezwzględnych uzywamy jak się odnosimy do innej strony. Jesli jednak odnosimy się do własnej 
+domenty to uzywamy odnośników względnych:</p>
+<textarea name="area" rows="2" cols="114">
+<a href="nazwa_pliku.html">To jest odnoścnik wzgledny.</a>
+</textarea>
+
+<h2>Odsyłacz graficzny</h2>
+<p>Czyli nasz obrazek jest hiperłączem</p>
+<textarea name="area" rows="2" cols="114">
+<a href="http://danowski.pl"><img src="media/obraz.png" alt="klikając na obrazek przekierujemy Cię na 
+stronę danowski.pl" /></a>
+</textarea> 
+<br />
+<a href="http://danowski.pl"><img src="media/obraz.jpg" alt="klikając na obrazek przekierujemy Cię na 
+stronę danowski.pl" style="border:0;" /></a>
+
+<h2>Tabele</h2>
+
+<table>
+	<tr>
+		<th>Pierwsza komórka</th>
+		<td>Druga komórka</td>
+	</tr>
+	<tr>
+		<td>Trzecia komórka</td>
+		<td>Czwarta komórka</td>
+	</tr>
+</table>
+
+<textarea name="tabela" rows="7" cols="80">
+<table>
+	<tr>
+		<th>Pierwsza komórka</th>
+		<td>Druga komórka</td>
+	</tr>
+	<tr>
+		<td>Trzecia komórka</td>
+		<td>Czwarta komórka</td>
+	</tr>
+</table>
+</textarea>
+<p>Znacznik table określa ramy tabeli natomiast <b>tr</b> wiersze. Każdy wiersz to jedna para znaczników <b>tr</b>.
+Wewnątrz wiersza znajdują się komórki <b>td</b>. Jedna para znacznikow odpowiada jednej komórce tabeli.<br /> 
+W symetrycznej tabeli w kazdym wierszu znajduje się tyle samo komórek.
+Aby w wierszu uzyskać pogrubioną czcionkę i wyśrodkowany tekst stosujemy <b>th</b> zamiast <b>td</b>.
+Jesli bysmy chcieli obramować tabelę to musimy użyć CSS. Wielkość tabeli domyślnie dostosowuje się do tego co w niej zamieścimy. 
+Do kontrolowania wymiarów tabeli trzeba użyć CSS.</p>
+
+<h2>Tabele niesymetryczne</h2>
+<p>Wiersze i kolumny możemy rozciągać o x komórek. S
+łużą do tego atrybuty <b>rowspan i colspan</b>, których używamy w znaczniku <b>td</b>.
+W atrybudach rowspan i colspan podajemy wartość liczbową okreslającą na ile 
+komórek ma być rozciągnięty wiersz lub kolumna. Tabele możemy też zagnieżdżać to znaczy umieszczać tabelę w 
+tabeli. Tabele możemy podpisywać a najprostszym sposobem jest znacznik <b>caption</b> </p>
+
+<figure>
+   <figcaption>Tabela 1. Wierz zawiera jedna komórkę rozciągniętą na dwie kolumny.</figcaption>
+<table>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td colspan="2">trzy i cztery</td>
+	</tr>
+</table>
+</figure>
+
+<br />
+
+<caption>Tabela 2. W pierwszej kolumnie komórka rozciągnięta na dwa wiersze.<caption>
+<table>
+	<tr>
+		<td rowspan="2">1</td>
+		<td> 2 </td>
+	</tr>
+	<tr>
+		<td>3</td>
+	</tr>
+</table>
+
+<p>W tabelach mamy uzywać jeszcze kilka innych znaczników: <br />
+<b>thead, tbody, tfoot</b> <br />
+Znaczniki te służą do wyodrębnienia nagłówka, ciała i stopki tabeli co jest bardzo przydatne przy formatowaiu
+tabeli przy pomoy CSS. Tabelę możemy też podpisać a najprościej to zrobić używając znacznika capition albo figure - figcapition.
+Różnica między tymi dwoma podpisami jest taka, że przy znaczniku capition podpis jest domyslnie wyśrodkowany.
+Warto pamiętać że jak dodamy figcapition zaraz po otwierającym figure to podpis będzie nad tabelką. Jesli natomiast
+figcapition dodamy zaraz przed zmykającym figure to podpis będzie pod tabelką. </p>
+
+<h2>Formularze</h2>
+<p>Ramy formularza definiuje znacznik <b>form.</b> Możemy go wzbogacić o znacznik fieldset,
+który grupuje podobne elementy w formularzu. Fieldset dodatkowo rysuje ramkę wokół formularza. Fieldset możemy zaś wzbogacić o 
+znacznik legend który podpisuje ramkę formularza. 
+Znacznik form posiada szereg atrybutów: </p>
+<ul>
+	<li>action="" określa rodzaj akcji jaka ma być wykonana po naciśnięciu OK. Jako wartość action można podać adres skryptu lub email</li>
+	<li>method="" okresla metodę, która zostanie użyta do wykonania formularza.</li>
+		<ul>
+			<li>post - służy do zgłaszania długich żądań do serwera.</li>
+			<li>get - zgłasza któtki żądanie.</li>
+		</ul>
+	<li>autocompleate="" pozwala na automatyczne zapamietywanie wprowadzonych danych w formularzach i wykorzystywanie ich w przyszłości.
+		do automatycznego wypełniania formularzy. Jeśli nie zdefiniujemy parametru atrybutu autocompleate to przeglądarka domyślnie i tak będzie zapamiętywać dane w formularzu.</li>
+	<li>novalidate="" ten element pozwala na wyłączenie domyslnie sprawdzanej zawartości formularza. Czyli formularz
+	może przez to zostać wysłany z błędnymi danymi lub pustymi polami.</li>	
+</ul>
+
+		
+<h2>Pola typu input</h2>
+<p>Są to pola w które możemy wprowadzić odpowiedni typ danych:</p>
+<ul>
+	<li>type="text" pole na tekst.</li>
+	<li>type="search" pole na wyszukiwarkę osadzoną na stronę. Na końcu wpisywanego ciagu znaków w tym polu pokazuje się x do kasowania całego pola.	</li>
+	<li>type="tel" pole do wprowadzania numeru telefonu.</li>
+	<li>type="url" pole do wprowadzania adresu strony.</li>
+	<li>type="email" pole do wprowadzania emaila.</li>
+	<li>type="datetime" pole do wprowadzania liczb oznaczających datę rrr-mm-dd hh:mm. Po kliknieciu tego pola pojawią się w przeglądarce kalendarz.</li>
+	<li>type="date" pole do wprowadzania daty Po kliknieciu tego pola pojawią się w przeglądarce kalendarz.</li>
+	<li>type="month" pole do wprowadzania liczb daty w formacie rrr-mm. Tutaj też po kliknięciu powinien się pojawić kalendarz.</li>
+	<li>type="time" pole do wprowadzania czasu w formacie hh:mm:ss. Po kliknięciu powinny się pojawić dodatkowe przyciski za pomocą któreych możemy ustawić godzinę.</li>
+	<li>type="number" do wprowadzania liczb.</li>
+	<li>type="image" wykorzystywane jako przycisk graficzny.</li>
+	<li>type="color" do wprowadzania informacji na temat koloru w formacie sRGB.</li>
+	<li>type="range" pokazuje suwak do określania wartości liczbowej. Można np. wykorzystać żeby zmierzyć poziom zadowolenia. Atrybutami są min max stepp</li>
+	<li>type="checkbox" to okienka do zaptaszania.</li>
+	<li>type="radio" pole wyboru jednej z kilku możliwych odpowiedzi.</li>
+	<li>type="password" wpisywane hałso jest zagwiazdkowane.</li>
+	<li>type="file" pozwala dołączyć dowolny plik tekstowy do formularza. Możemy tu dodać atrybut multiple aby dodać więcej niż jeden plik do formularza.</li>
+	<li>type="hidden" wstawia pole tekstowe niewidoczne na stronie.</li>
+	<li>type="submit" przycisk odpowiada za wykonanie <b>action</b> zdefiniowanego dla formularza.</li>
+	<li>type="reset" czyścii dane formularza.</li>
+	<li>type="button" przycisk dowolnego przeznaczenia.</li>
+<br />
+	
+<form>
+  <fieldset>
+    <legend>Personalia:</legend>
+    Name: <input type="text"><br>
+    Email: <input type="text"><br>
+    Date of birth: <input type="text">
+  </fieldset>
+</form>
+<br />
+<br />
+<textarea rows="9" cols="55">
+<form>
+  <fieldset>
+    <legend>Personalia:</legend>
+    Name: <input type="text"><br>
+    Email: <input type="text"><br>
+    Date of birth: <input type="text">
+  </fieldset>
+</form>
+</textarea>
+
+<p>Kod <b>input</b> może być uzupełniony o dodatkowe atrybuty, które czasem można ze sobą łączyć:</p>
+<ul>
+	<li>name="" określa nazwę pola. W przypadku pola radio wszystkie pola w jednej grupie muszą mieć taką samą nazwę.</li>
+	<li>value="" w zależności od znacznika w którym go uzyjemy. Jesli uzyjemy go z polem tekstowym to wewnątrz ramki pola tekstowego pojawi się 
+	tekst wpisany w polu value. Będzie wyszarzony i zniknie po kliknięciu w pole tekstowe.</li> 
+	<li>size="20" słuzy do określania ilości znaków mieszczących się w widocznej części pola tekstowego.</li>
+	<li>maxlength="" określa maksymalną liczbę znaków jaką mozna wpisać do pola tekstowego.</li>
+	<li>autocompleate="" umieszczając w konkretnym naczniku możemy sterować zapamiętywaniem w formularzu np haseł.</li>
+	<li>autofocus="autofocus" pozwala zaznaczyć zawartośc pola do którego został przypisany. </li>
+	<li>disabled="disabled" pozwala ukryć coś na stronie bez usuwania tego elementu.</li>
+	<li>required="required" jeśli nie wypełnimy pola z tym atrybutem to otrzymamy komunikat, że pole jest wymagane do przesłania formularza.</li>
+	<li>placeholder="" ........................</li>
+	<li>value="domyślna wartość pola" - odpowiada za umieszczenie w polu domyślnej wrtości.</li>
+	<li>readonly="readonly" - blokuje możliwość edycji pola. Pole jest tylko do odczytu.</li>
+
+	
+</ul>
+	
+<form autocompleate="off">
+<p><label><strong>Login</strong><input type="text" name="login" autocompleate="on" /></label></p>
+<p><b>Hasło</b><input type="password" name="haslo" /></p>
+</form>
+
+<form>
+	<fieldset>
+		<legend>Opcje dostawy</legend>
+		<p><input type="radio" name="dostawa" />Poczta Polska</p>
+		<p><input type="radio" name="dostawa" />DPD</p>
+		<p><input type="radio" name="dostawa" />Paczkomaty InPost</p>
+		<p><input type="radio" name="dostawa" disabled="disabled" />Kiosk Ruchu</p>
+	</fieldset>
+</form>
+
+<form>
+	<fieldset>
+		<legend>Oceń nas</legend>
+		<p>Oceń naszą stronę internetową: 0 - trgedia; 1 - słaba; 2 - ujdzie; 3 - masz na zachętę :)</p>
+		<input type="range" min="0" max="3" step="1" value="2" />
+		
+
+
+	<br />	<br />	<br />
+	<input type="search" name="szukaj" value"wpisz szukane słowo" />
+	</fieldset>
+</form>	
+	
+<h2>Listy rozwijane</h2>
+<p>Atrybut input list w połaczeniu z datalist pozwala na stworzenie rozwijanej listy z elementami do wyboru, które wczesniej
+definiujemy w datalist</p>
+<textarea rows="7" cols=" 55">
+<form>
+	<input type="text" name="jezyk" list="jezyki" />
+	<datalist id="jezyki">
+		<option value="polski">polski</option>
+		<option value="niemiecki">niemiecki</option>
+		<option value="łaciński">łaciński</option>
+	</datalist>
+</form>
+</textarea>
+
+
+
+<form>
+	<input type="text" name="jezyk" list="jezyki" />
+	<datalist id="jezyki">
+		<option value="polski">polski</option>
+		<option value="niemiecki">niemiecki</option>
+		<option value="łaciński">łaciński</option>
+	</datalist>
+</form>
+	
+<h2>Pole typu select</h2>
+<p>Dzięki niemu możemy wybrać jedną lub kilka opcji z listy. W polach tupu select możemy uzywać następujących atrybutów:<br />
+multiple="multiple" - w przypadku listy select option pozwala na wybranie kilku elementów z listy.  <br />
+optgroup - pozwala na grupowanie elementów listy w kategorie.  <br />
+size=" " - określa ile elementów ma być widocznych na liście.Jeśli podamy ilość taką samą lub większą niż ilość elementów na liście to wyeleminujemy pasek przewijania z boku. <br />
+autofocus="" - pozwala ozaczyc pole w chwili wczytywania przez przeglądarkę. <br />
+distabled="" - pozwala czasowo wyłączyć mozliwość edycji zawartości pola. <br />
+required="" - określa czy dane pole jest wymagane do wysłania formularza. <br />
+</p>
+
+<textarea rows="7" cols=" 55">
+	<select name="lista_select">
+		<option value="pierwsza pozycja">pierwsza z listy</option>
+		<option value="druga pozycja">druga z listy</option>
+		<option value="trzecia pozycja">trzecia z listy</option>
+	</select>
+</textarea>
+
+<select name="lista_select" multiple="multiple">
+<option value="wybierz element z listy">Wybierz element z listy poniżej</option>
+	<optgroup label="1. grupa pierwsza"></optgroup>
+		<option value="pierwsza pozycja">pierwsza z listy</option>
+		<option value="druga pozycja">druga z listy</option>
+		<option value="trzecia pozycja">trzecia z listy</option>
+	<optgroup label="2. grupa druga"></optgroup>
+		<option value="pierwsza pozycja">pierwsza z listy</option>
+		<option value="druga pozycja">druga z listy</option>
+		<option value="trzecia pozycja">trzecia z listy</option>
+</select>
+	
+<h2>Textarea</h2>
+<p>Słuzy do wprowadzania większej ilości danych. Umieszczając tekst w środku znacznika możemy zasugerować co wpisać w polu edycji.
+Pole mozemy wzbogacić dodatkowymi atrybutami: <br />
+maxlength="" - oznacza maksymalną liczbę znaków do wpisania w formularzu. <br />
+placeholder="" - wprowadzony tekst pojawi się w formularzu ale zniknie po najechaniu myszą. <br />
+readonly="" tylko do odczytu
+wrap="" - wartość hard wymusza podział na wiersze, warość soft pozostawia tekst bez zmian. <br />
+</p>
+
+<h2>Przesyłania danych z formularza</h2>
+<p>Przy wysyłaniu danych z formularza na mejla najlepiej urzywać do tego skrypptów takich jak FormMail aby 
+przesłana treść formularza była czytelnie sformatowana. <p/>
+
+<h2>Znaczniki grupoujące pola formularza</h2>
+<p>Dzieki nim możemy zgrupować kilka pól formularza, dodać podpis oraz opisy poszczególnych pól:  <br />
+<b>fildset, legend, label</b>  <br />
+
+<ul>
+	<li>fildset - rysuje ramkę wokół formularza. </li>
+	<li>legend - dodaje podpis zlokalizowany w ramce. legend należy umieścić bezpośrednio po otwierającym fildset.</li>
+	<li>label - służy do oznaczania tekstu będącego opisem pola formularza. </li>
+</ul>
+	
+	
+	
+	
  <br />
  <br />
  <br />
@@ -389,11 +783,7 @@ z uwagi na poprawność kodu.
  <br />
 
  
-  
-  
-  
-  
-  
+
   
   </body>
 
